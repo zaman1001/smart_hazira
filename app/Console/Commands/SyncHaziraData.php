@@ -36,6 +36,7 @@ class SyncHaziraData extends Command
         } elseif($offset>0){
             $offset=($offset*$limit)+$limit;
         }
+
         try{
             $attendenceObj = Attendence_log::where('is_updated',0)->offset($offset)->limit($limit)->get(['id','devicename']);
             if(count($attendenceObj) > 0){
